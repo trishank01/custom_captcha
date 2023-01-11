@@ -97,7 +97,7 @@ const Login = () => {
     }
   };
 
-  console.log(formValue);
+  window.document.title = "Login"
 
   return (
     <div>
