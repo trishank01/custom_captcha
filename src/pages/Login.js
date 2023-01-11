@@ -3,6 +3,7 @@ import { ThemeContext } from "../context/themeContext";
 import { MdDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import Captcha from "../components/captcha/Captcha";
+import { useNavigate } from "react-router-dom";
 
 let allCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
                      'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
@@ -17,71 +18,7 @@ const Login = () => {
   const [formValue, setformValue] = useState(
     JSON.parse(localStorage.getItem("user")) || {}
   );
-
-  //   "A",
-  //   "B",
-  //   "C",
-  //   "D",
-  //   "E",
-  //   "F",
-  //   "G",
-  //   "H",
-  //   "I",
-  //   "J",
-  //   "K",
-  //   "L",
-  //   "M",
-  //   "N",
-  //   "O",
-  //   "P",
-  //   "Q",
-  //   "R",
-  //   "S",
-  //   "T",
-  //   "U",
-  //   "V",
-  //   "W",
-  //   "X",
-  //   "Y",
-  //   "Z",
-  //   "a",
-  //   "b",
-  //   "c",
-  //   "d",
-  //   "e",
-  //   "f",
-  //   "g",
-  //   "h",
-  //   "i",
-  //   "j",
-  //   "k",
-  //   "l",
-  //   "m",
-  //   "n",
-  //   "o",
-  //   "p",
-  //   "q",
-  //   "r",
-  //   "s",
-  //   "t",
-  //   "u",
-  //   "v",
-  //   "w",
-  //   "x",
-  //   "y",
-  //   "z",
-  //   0,
-  //   1,
-  //   2,
-  //   3,
-  //   4,
-  //   5,
-  //   6,
-  //   7,
-  //   8,
-  //   9,
-  // ]);
-
+  const navigate = useNavigate()
 
 
 
@@ -97,6 +34,10 @@ const Login = () => {
     };
     setformValue(getFormValue);
     localStorage.setItem("user", JSON.stringify(getFormValue));
+
+    if(formValue){
+      navigate("/home")
+    }
   };
 
   console.log(formValue)
@@ -109,15 +50,15 @@ const Login = () => {
         <h2 className="text-[24px] text-color-base  dark:text-color-brand flex justify-center">
           Register Your Self
         </h2>
-        <div className=" w-[370px] md:w-[400px] h-[500px] mt-7">
+        <div className="w-[370px] md:w-[400px] h-[500px] mt-7">
           <form
             onSubmit={handleFormSubmit}
         
-            className="bg-white p-5 rounded-xl drop-shadow-lg"
+            className="dark:bg-white bg-[#c2ced8] p-5 rounded-xl drop-shadow-lg"
           >
-            <div className="m-8">
+            <div className="m-8 ">
               <input
-                className="p-4 w-[100%] bg-[#F2F2F2] text-grey font-semibold font-sans border-0 focus:outline-none"
+                className="p-4 w-[100%] bg-[#F2F2F2] rounded-lg text-grey font-semibold border-0 focus:outline-none"
                 type="text"
                 placeholder="Your Name"
                 value={name}
@@ -126,7 +67,7 @@ const Login = () => {
             </div>
             <div className="m-8">
               <input
-                className="p-4 w-[100%] bg-[#F2F2F2] text-grey font-semibold font-sans border-0 focus:outline-none"
+                className="p-4 w-[100%] bg-[#F2F2F2] rounded-lg text-grey font-semibold font-sans border-0 focus:outline-none"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -135,7 +76,7 @@ const Login = () => {
             </div>
             <div className="m-8">
               <input
-                className="p-4 w-[100%] bg-[#F2F2F2] text-grey font-semibold font-sans border-0 focus:outline-none"
+                className="p-4 w-[100%] bg-[#F2F2F2] rounded-lg text-grey font-semibold font-sans border-0 focus:outline-none"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -144,7 +85,7 @@ const Login = () => {
             </div>
             <Captcha setIsCaptchaValid={setIsCaptchaValid} isCaptchaValid={isCaptchaValid}/>
             <div className="m-8">
-              <button type="submit" disabled={isCaptchaValid === false} className="p-4 w-[100%] cursor-pointer text-white disabled:bg-gray-400  bg-color-base font-bold border-0 focus:outline-none  disabled:cursor-not-allowed">
+              <button type="submit" disabled={isCaptchaValid === false} className="p-4 w-[100%] cursor-pointer text-white disabled:bg-gray-400  bg-color-base font-bold rounded-lg border-0 focus:outline-none  disabled:cursor-not-allowed">
                 Sign In
               </button>
             </div>

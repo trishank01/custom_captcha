@@ -114,19 +114,20 @@ const Captcha = ({setIsCaptchaValid ,isCaptchaValid}) => {
   return (
     <div className="m-8">
       <div className="flex justify-evenly w-full">
-        <span id="disableCopy" className=" p-4 w-[80%] dark:bg-color-brand bg-color-base text-white dark:text-black text-grey font-semibold font-sans border-0 focus:outline-none mb-3 tracking-[20px]">
+        <span id="disableCopy" className=" p-4 w-[80%] dark:bg-color-brand bg-color-base text-white dark:text-black text-grey font-semibold font-sans border-0 focus:outline-none mb-3 tracking-[20px] rounded-l-lg">
           {randomString}
         </span>
         <button
+          type="button"
           onClick={handleReload}
-          className={"w-[20%] border-0 focus:outline-none mb-3 cursor-pointer"}
+          className={"w-[20%] border-0 focus:outline-none mb-3 cursor-pointer rounded-r-lg"}
         >
           <AiOutlineReload size={28}  className={`${rotateIcon ? "rotate-180 duration-300" : "rotate-[-180deg] duration-300"}`}/>
         </button>
       </div>
       <div className="flex relative">
         <input
-          className="p-4 w-[100%] bg-[#F2F2F2] text-grey font-semibold font-sans border-0 focus:outline-none"
+          className="p-4 w-[100%] bg-[#F2F2F2] rounded-lg text-grey font-semibold font-sans border-0 focus:outline-none"
           type="text"
           placeholder="Enter captcha"
           onChange={(e) => setUserEnteredCaptcha(e.target.value)}
