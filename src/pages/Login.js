@@ -100,11 +100,6 @@ const Login = () => {
   window.document.title = "Login"
 
   return (
-    <div>
-      <head>
-        <meta name="description" content="Home page" />
-      </head>
-
       <section
         className={`flex h-screen justify-center items-center bg-[#F2F2F2] dark:bg-color-base`}
       >
@@ -171,7 +166,6 @@ const Login = () => {
           </div>
         </div>
       </section>
-    </div>
   );
 };
 

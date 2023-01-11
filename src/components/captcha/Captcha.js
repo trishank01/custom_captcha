@@ -66,7 +66,7 @@ let allCharacters = [
   9,
 ];
 
-const Captcha = ({setIsCaptchaValid ,isCaptchaValid}) => {
+const Captcha = ({setIsCaptchaValid }) => {
   const [randomString, setRandomString] = useState("");
   const [userEnteredCaptcha, setUserEnteredCaptcha] = useState("");
   const [rotateIcon, setRotateIcon] = useState(false);
@@ -76,8 +76,7 @@ const Captcha = ({setIsCaptchaValid ,isCaptchaValid}) => {
   function getCaptcha() {
     let randomsix = "";
     for (let i = 0; i < 6; i++) {
-      randomsix +=
-        allCharacters[Math.floor(Math.random() * allCharacters.length)];
+      randomsix += allCharacters[Math.floor(Math.random() * allCharacters.length)];
     }
     setRandomString(randomsix);
   }
